@@ -14,7 +14,7 @@ class CreatePratosTable extends Migration
     public function up()
     {
         Schema::create('pratos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nome_prato', 40);
             $table->decimal('valor_prato');
         });

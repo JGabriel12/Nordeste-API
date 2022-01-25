@@ -14,8 +14,10 @@ class CreatePedidosTable extends Migration
     public function up()
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('status_pedido', 30);
+            $table->integer('id_mesa')->unsigned();
+            $table->integer('id_prato')->unsigned();
             $table->foreign('id_mesa')->references('id')->on('mesas')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_prato')->references('id')->on('pratos')->onDelete('cascade')->onUpdate('cascade');
         });
