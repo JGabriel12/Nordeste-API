@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/cadastrarEstadia', 'App\Http\Controllers\EstadiaController@store');
+
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */

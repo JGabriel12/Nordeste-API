@@ -16,6 +16,7 @@ class CreateMesasTable extends Migration
         Schema::create('mesas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('numero_mesa');
+            // timespamp
         });
     }
 

@@ -22,6 +22,7 @@ class CreateEstadiasTable extends Migration
             $table->string('status_mesa', 20);
             $table->integer('id_mesa')->unsigned();
             $table->foreign('id_mesa')->references('id')->on('mesas')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
