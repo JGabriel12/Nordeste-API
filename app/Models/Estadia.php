@@ -13,4 +13,12 @@ class Estadia extends Model
     {
         return $this->belongsTo(Mesa::class);
     }
+
+    protected $fillable = [
+        'horario_chegada',
+        'horario_saida',
+        'data_atual',
+        'valor_total_estadia',
+        'status_mesa',
+    ];
 }

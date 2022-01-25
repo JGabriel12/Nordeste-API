@@ -18,4 +18,8 @@ class Mesa extends Model
     {
         return $this->hasMany(Pedido::class);
     }
+
+    protected $fillable = [
+        'numero_mesa',
+    ];
 }

@@ -18,4 +18,8 @@ class Pedido extends Model
     {
         return $this->hasMany(Prato::class);
     }
+
+    protected $fillable = [
+        'status_pedido',
+    ];
 }

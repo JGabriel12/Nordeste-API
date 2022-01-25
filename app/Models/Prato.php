@@ -13,4 +13,10 @@ class Prato extends Model
     {
         return $this->belongsTo(Pedido::class);
     }
+
+    protected $fillable = [
+        'status_pedido',
+        'nome_prato',
+        'valor_prato'
+    ];
 }
