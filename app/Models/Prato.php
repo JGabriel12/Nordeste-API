@@ -15,7 +15,6 @@ class Prato extends Model
     }
 
     protected $fillable = [
-        'status_pedido',
         'nome_prato',
         'valor_prato'
     ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prato;
 use Illuminate\Http\Request;
 
 class PratoController extends Controller
@@ -34,7 +35,12 @@ class PratoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Prato::create([
+            'nome_prato' => $request->nome_prato,
+            'valor_prato' => $request->valor_prato
+        ]);
+
+        return "Prato cadastrado com sucesso";
     }
 
     /**

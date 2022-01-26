@@ -19,6 +19,8 @@ Route::get('/cadastrarMesa', 'App\Http\Controllers\MesaController@store');
 
 Route::get('/cadastrarPedido', 'App\Http\Controllers\PedidoController@store');
 
+Route::get('/cadastrarPrato', 'App\Http\Controllers\PratoController@store');
+
 /* Route::get('/', function () {
     return view('welcome');
 }); */
