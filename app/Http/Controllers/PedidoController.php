@@ -36,7 +36,9 @@ class PedidoController extends Controller
     public function store(Request $request)
     {
         Pedido::create([
-            'status_pedido' => $request->status_pedido
+            'status_pedido' => $request->status_pedido,
+            'id_mesa' => $request->id_mesa,
+            'id_prato' => $request->id_prato
         ]);
     }
 
