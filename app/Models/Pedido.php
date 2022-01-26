@@ -21,6 +21,7 @@ class Pedido extends Model
 
     protected $fillable = [
         'status_pedido',
-
+        'id_mesa',
+        'id_prato'
     ];
 }
