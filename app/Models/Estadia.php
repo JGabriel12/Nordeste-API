@@ -20,5 +20,6 @@ class Estadia extends Model
         'data_atual',
         'valor_total_estadia',
         'status_mesa',
+        'id_mesa'
     ];
 }

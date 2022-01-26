@@ -21,5 +21,6 @@ class Pedido extends Model
 
     protected $fillable = [
         'status_pedido',
+
     ];
 }
