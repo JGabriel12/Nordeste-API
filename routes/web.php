@@ -42,6 +42,9 @@ Route::get('/ExcluirMesa', 'App\Http\Controllers\MesaController@updateStatus');
 
 Route::get('/ExcluirEstadia', 'App\Http\Controllers\EstadiaController@updateStatus');
 
+Route::get('/ShowMesa', 'App\Http\Controllers\MesaController@show');
+
+
 /* Route::get('/', function () {
     return view('welcome');
 }); */

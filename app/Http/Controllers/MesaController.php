@@ -49,9 +49,11 @@ class MesaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        $mesa = Mesa::find(['id' => $request->id]);
+
+        return $mesa;
     }
 
     /**
@@ -72,7 +74,7 @@ class MesaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         Mesa::where(['id' => $request->id])->update([
             'numero_mesa' => $request->numero_mesa
