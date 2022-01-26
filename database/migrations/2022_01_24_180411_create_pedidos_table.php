@@ -20,6 +20,7 @@ class CreatePedidosTable extends Migration
             $table->integer('id_prato')->unsigned();
             $table->foreign('id_mesa')->references('id')->on('mesas')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_prato')->references('id')->on('pratos')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 

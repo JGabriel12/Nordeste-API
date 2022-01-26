@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Estadia;
+use App\Models\Mesa;
 use Illuminate\Http\Request;
 
 class MesaController extends Controller
@@ -34,7 +36,11 @@ class MesaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Mesa::create([
+            'numero_mesa' => $request->numero_mesa
+        ]);
+
+        return "Mesa cadastrada com sucesso!";
     }
 
     /**

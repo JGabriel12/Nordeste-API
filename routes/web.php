@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/cadastrarEstadia', 'App\Http\Controllers\EstadiaController@store');
 
+Route::get('/cadastrarMesa', 'App\Http\Controllers\MesaController@store');
+
 /* Route::get('/', function () {
     return view('welcome');
 }); */
