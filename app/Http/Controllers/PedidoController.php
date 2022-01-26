@@ -40,6 +40,8 @@ class PedidoController extends Controller
             'id_mesa' => $request->id_mesa,
             'id_prato' => $request->id_prato
         ]);
+
+        return "Pedido cadastrado com sucesso!";
     }
 
     /**
