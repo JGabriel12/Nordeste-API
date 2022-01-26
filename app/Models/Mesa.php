@@ -21,5 +21,6 @@ class Mesa extends Model
 
     protected $fillable = [
         'numero_mesa',
+        'status_mesa'
     ];
 }

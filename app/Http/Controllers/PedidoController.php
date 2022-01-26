@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mesa;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
 
@@ -52,7 +53,8 @@ class PedidoController extends Controller
      */
     public function show($id)
     {
-        //
+        Mesa::All()->find($id);
+        // return view('show', compact('book'));
     }
 
     /**
@@ -73,9 +75,15 @@ class PedidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Pedido::where(['id' => $request->id])->update([
+            'status_pedido' => $request->status_pedido,
+            'id_mesa' => $request->id_mesa,
+            'id_prato' => $request->id_prato
+        ]);
+
+        return "Pedido atualizado!";
     }
 
     /**

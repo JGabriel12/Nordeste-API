@@ -8,10 +8,7 @@ use Illuminate\Http\Request;
 class EstadiaController extends Controller
 {
 
-    public function __construct()
-    {
-        Estadia::All();
-    }
+
 
     /**
      * Display a listing of the resource.
@@ -84,6 +81,23 @@ class EstadiaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Estadia::where(['id' => $request->id])->update([
+            'horario_chegada' => $request->horario_chegada,
+            'horario_saida' => $request->horario_saida,
+            'valor_total_estadia' => $request->valor_total_estadia
+        ]);
+
+        return "Estadia atualizada!";
+    }
+
+    public function updateStatus(Request $request)
+    {
+        //Excluir logicamente
+        Estadia::where(['id' => $request->id])->update([
+            'status_estadia' => $request->status_estadia
+        ]);
+
+        return "Estadia excluida!";
     }
 
     /**

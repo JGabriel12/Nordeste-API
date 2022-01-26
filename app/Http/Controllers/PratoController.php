@@ -72,9 +72,24 @@ class PratoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Prato::where(['id' => $request->id])->update([
+            'nome_prato' => $request->nome_prato,
+            'valor_prato' => $request->valor_prato
+        ]);
+
+        return "Prato atualizado!";
+    }
+
+    public function updateStatus(Request $request)
+    {
+        //Excluir logicamente
+        Prato::where(['id' => $request->id])->update([
+            'status_prato' => $request->status_prato
+        ]);
+
+        return "Prato excluido do cardapio!";
     }
 
     /**

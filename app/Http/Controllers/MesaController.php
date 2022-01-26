@@ -74,7 +74,21 @@ class MesaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Mesa::where(['id' => $request->id])->update([
+            'numero_mesa' => $request->numero_mesa
+        ]);
+
+        return "Mesa atualizada!";
+    }
+
+    public function updateStatus(Request $request)
+    {
+        //Excluir logicamente
+        Mesa::where(['id' => $request->id])->update([
+            'status_mesa' => $request->status_mesa
+        ]);
+
+        return "Mesa excluida!";
     }
 
     /**
