@@ -51,10 +51,11 @@ class PedidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        Mesa::All()->find($id);
-        // return view('show', compact('book'));
+        $pedido = Pedido::find(['id' => $request->id]);
+
+        return $pedido;
     }
 
     /**

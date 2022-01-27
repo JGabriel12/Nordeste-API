@@ -42,7 +42,15 @@ Route::get('/ExcluirMesa', 'App\Http\Controllers\MesaController@updateStatus');
 
 Route::get('/ExcluirEstadia', 'App\Http\Controllers\EstadiaController@updateStatus');
 
+// Select
+
 Route::get('/ShowMesa', 'App\Http\Controllers\MesaController@show');
+
+Route::get('/ShowEstadia', 'App\Http\Controllers\EstadiaController@show');
+
+Route::get('/ShowPedido', 'App\Http\Controllers\PedidoController@show');
+
+Route::get('/ShowPrato', 'App\Http\Controllers\PratoController@show');
 
 
 /* Route::get('/', function () {
