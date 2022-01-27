@@ -51,8 +51,3 @@ Route::get('/ShowEstadia', 'App\Http\Controllers\EstadiaController@show');
 Route::get('/ShowPedido', 'App\Http\Controllers\PedidoController@show');
 
 Route::get('/ShowPrato', 'App\Http\Controllers\PratoController@show');
-
-
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
