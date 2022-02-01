@@ -16,9 +16,9 @@ class CreateEstadiasTable extends Migration
         Schema::create('estadias', function (Blueprint $table) {
             $table->increments('id');
             $table->time('horario_chegada');
-            $table->time('horario_saida');
+            $table->time('horario_saida')->nullable();
             $table->date('data_atual');
-            $table->decimal('valor_total_estadia');
+            $table->decimal('valor_total_estadia')->nullable();
             $table->string('status_mesa', 30);
             $table->integer('status_estadia')->default('1');
             $table->integer('id_mesa')->unsigned();

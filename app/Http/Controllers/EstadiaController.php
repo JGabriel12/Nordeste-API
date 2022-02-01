@@ -38,10 +38,12 @@ class EstadiaController extends Controller
      */
     public function store(Request $request)
     {
+        $data_atual = date('d/m/Y');
+        $horario_atual = date('h:i:s');
         Estadia::create([
-            'horario_chegada' => $request->horario_chegada,
+            'horario_chegada' => $horario_atual,
             'horario_saida' => $request->horario_saida,
-            'data_atual' => $request->data_atual,
+            'data_atual' => $data_atual,
             'valor_total_estadia' => $request->valor_total_estadia,
             'status_mesa' => $request->status_mesa,
             'id_mesa' => $request->id_mesa
