@@ -19,7 +19,6 @@ class CreateEstadiasTable extends Migration
             $table->time('horario_saida')->nullable();
             $table->date('data_atual');
             $table->decimal('valor_total_estadia')->nullable();
-            $table->string('status_mesa', 30);
             $table->integer('status_estadia')->default('1');
             $table->integer('id_mesa')->unsigned();
             $table->foreign('id_mesa')->references('id')->on('mesas')->onDelete('cascade');

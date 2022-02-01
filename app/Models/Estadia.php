@@ -19,7 +19,6 @@ class Estadia extends Model
         'horario_saida',
         'data_atual',
         'valor_total_estadia',
-        'status_mesa',
         'status_estadia',
         'id_mesa'
     ];
