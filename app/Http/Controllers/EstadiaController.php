@@ -38,6 +38,8 @@ class EstadiaController extends Controller
      */
     public function store(Request $request)
     {
+
+        date_default_timezone_set('America/Sao_Paulo');
         $data_atual = date('Y/m/d');
         $horario_atual = date('h:i:s');
         Estadia::create([
