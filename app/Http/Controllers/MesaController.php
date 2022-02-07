@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Estadia;
 use App\Models\Mesa;
 use Illuminate\Http\Request;
+use \Illuminate\Http\Response;
 
 class MesaController extends Controller
 {
@@ -49,10 +50,9 @@ class MesaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show()
     {
-        $mesa = Mesa::find(['id' => $request->id]);
-
+        $mesa = Mesa::where('status_mesa', 1)->get();
         return $mesa;
     }
 
