@@ -51,8 +51,7 @@ class PratoController extends Controller
      */
     public function show(Request $request)
     {
-        $prato = Prato::find(['id' => $request->id]);
-
+        $prato = Prato::where('status_prato', 1)->get();
         return $prato;
     }
 
