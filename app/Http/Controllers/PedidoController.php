@@ -36,13 +36,14 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        Pedido::create([
-            'status_pedido' => $request->status_pedido,
-            'id_mesa' => $request->id_mesa,
-            'id_prato' => $request->id_prato
-        ]);
+        $status_pedido = "Concluido!";
+        // Pedido::create([
+        //     'status_pedido' => $status_pedido,
+        //     'id_mesa' => 1,
+        //     'id_prato' => $request->id_prato
+        // ]);
 
-        return "Pedido cadastrado com sucesso!";
+        return $request;
     }
 
     /**

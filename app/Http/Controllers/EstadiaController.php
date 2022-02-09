@@ -50,7 +50,10 @@ class EstadiaController extends Controller
             'id_mesa' => $request->id_mesa
         ]);
         // return $request;
-        return 'Cadastro realizado com sucesso!';
+        return "<script>
+        alert('Sua estadia foi registrada!');
+        window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa'
+        </script>";
     }
 
     /**
