@@ -86,11 +86,12 @@ class PratoController extends Controller
     public function updateStatus(Request $request)
     {
         //Excluir logicamente
+        $status_prato = 0;
         Prato::where(['id' => $request->id])->update([
-            'status_prato' => $request->status_prato
+            'status_prato' => $status_prato
         ]);
 
-        return "Prato excluido do cardapio!";
+        return "prato deletado";
     }
 
     /**
