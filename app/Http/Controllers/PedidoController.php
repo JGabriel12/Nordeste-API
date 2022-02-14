@@ -36,14 +36,19 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        $status_pedido = "Concluido!";
-        // Pedido::create([
-        //     'status_pedido' => $status_pedido,
-        //     'id_mesa' => 1,
-        //     'id_prato' => $request->id_prato
-        // ]);
 
-        return $request;
+
+
+        Pedido::create([
+            'status_pedido' => "Concluido!",
+            'id_mesa' => $request->id_mesa,
+            'id_prato' => $request->id_prato
+        ]);
+
+        return "<script>
+        alert('Seu pedido foi registrado!');
+        window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa'
+        </script>";
     }
 
     /**
