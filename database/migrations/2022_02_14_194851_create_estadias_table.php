@@ -20,6 +20,8 @@ class CreateEstadiasTable extends Migration
             $table->date('data_atual');
             $table->decimal('valor_total_estadia')->nullable();
             $table->integer('status_estadia')->default('1');
+            $table->integer('id_pedido')->unsigned()->nullable();
+            $table->foreign('id_pedido')->references('id')->on('pedidos')->onDelete('cascade');
             $table->integer('id_mesa')->unsigned();
             $table->foreign('id_mesa')->references('id')->on('mesas')->onDelete('cascade');
             $table->timestamps();

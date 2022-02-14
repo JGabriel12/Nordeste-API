@@ -19,6 +19,11 @@ class Pedido extends Model
         return $this->hasMany(Prato::class);
     }
 
+    public function estadia()
+    {
+        return $this->belongsTo(Estadia::class);
+    }
+
     protected $fillable = [
         'status_pedido',
         'id_mesa',

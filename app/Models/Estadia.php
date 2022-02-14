@@ -14,12 +14,18 @@ class Estadia extends Model
         return $this->belongsTo(Mesa::class);
     }
 
+    public function pedido()
+    {
+        return $this->hasMany(Pedido::class);
+    }
+
     protected $fillable = [
         'horario_chegada',
         'horario_saida',
         'data_atual',
         'valor_total_estadia',
         'status_estadia',
+        'id_pedido',
         'id_mesa'
     ];
 }

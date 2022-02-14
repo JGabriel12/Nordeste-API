@@ -38,7 +38,6 @@ class EstadiaController extends Controller
      */
     public function store(Request $request)
     {
-
         date_default_timezone_set('America/Sao_Paulo');
         $data_atual = date('Y/m/d');
         $horario_atual = date('h:i:s');
@@ -47,9 +46,9 @@ class EstadiaController extends Controller
             'horario_saida' => $request->horario_saida,
             'data_atual' => $data_atual,
             'valor_total_estadia' => $request->valor_total_estadia,
+            'id_pedido' => $request->id_pedido,
             'id_mesa' => $request->id_mesa
         ]);
-        // return $request;
         return "<script>
         alert('Sua estadia foi registrada!');
         window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa'
