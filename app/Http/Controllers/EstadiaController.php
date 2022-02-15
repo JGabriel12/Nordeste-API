@@ -118,7 +118,7 @@ class EstadiaController extends Controller
             'horario_saida' => $horario_atual
         ]);
 
-        return "Estadia finalizada";
+        return $request;
     }
 
     /**
