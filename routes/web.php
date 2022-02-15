@@ -33,6 +33,8 @@ Route::get('/AtualizarMesa', 'App\Http\Controllers\MesaController@update');
 
 Route::get('/AtualizarEstadia', 'App\Http\Controllers\EstadiaController@update');
 
+Route::get('/FinalizarEstadia', 'App\Http\Controllers\EstadiaController@updateFimEstadia');
+
 
 // Excluir
 

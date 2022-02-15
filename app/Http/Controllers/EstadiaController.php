@@ -89,8 +89,7 @@ class EstadiaController extends Controller
     public function update(Request $request)
     {
         Estadia::where(['id' => $request->id])->update([
-            'horario_chegada' => $request->horario_chegada,
-            'horario_saida' => $request->horario_saida,
+            'id_pedido' => $request->id_pedido,
             'valor_total_estadia' => $request->valor_total_estadia
         ]);
 
@@ -105,6 +104,21 @@ class EstadiaController extends Controller
         ]);
 
         return "Estadia excluida!";
+    }
+
+
+    public function updateFimEstadia(Request $request)
+    {
+        //Atualizar horario de saida
+
+        date_default_timezone_set('America/Sao_Paulo');
+        $horario_atual = date('h:i:s');
+
+        Estadia::where(['id' => $request->id_estadia])->update([
+            'horario_saida' => $horario_atual
+        ]);
+
+        return "Estadia finalizada";
     }
 
     /**
