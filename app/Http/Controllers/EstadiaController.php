@@ -49,9 +49,12 @@ class EstadiaController extends Controller
             'id_pedido' => $request->id_pedido,
             'id_mesa' => $request->id_mesa
         ]);
+        $id_estadia = Estadia::latest('id')->first();
+        // $id_estadia->id;
+
         return "<script>
         alert('Sua estadia foi registrada!');
-        window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa'
+        window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia->id'
         </script>";
     }
 
