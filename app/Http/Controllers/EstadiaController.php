@@ -120,8 +120,11 @@ class EstadiaController extends Controller
         Estadia::where(['id' => $request->id_estadia])->update([
             'horario_saida' => $horario_atual
         ]);
-
-        return $request;
+        $id_estadia = Estadia::latest('id')->first();
+        return "<script>
+        alert('Estadia finalizada!');
+        window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia->id'
+        </script>";
     }
 
     /**
