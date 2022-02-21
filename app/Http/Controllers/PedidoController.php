@@ -36,9 +36,6 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-
-
-
         Pedido::create([
             'status_pedido' => "Concluido!",
             'id_mesa' => $request->id_mesa,

@@ -52,7 +52,10 @@ class EstadiaController extends Controller
         $id_estadia = Estadia::latest('id')->first();
         // $id_estadia->id;
 
+
+
         return "<script>
+        
         alert('Sua estadia foi registrada!');
         window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia->id'
         </script>";
@@ -89,7 +92,7 @@ class EstadiaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    /*     public function update(Request $request)
     {
         Estadia::where(['id' => $request->id])->update([
             'id_pedido' => $request->id_pedido,
@@ -97,9 +100,9 @@ class EstadiaController extends Controller
         ]);
 
         return "Estadia atualizada!";
-    }
+    } */
 
-    public function updateStatus(Request $request)
+    /*   public function updateStatus(Request $request)
     {
         //Excluir logicamente
         Estadia::where(['id' => $request->id])->update([
@@ -107,23 +110,35 @@ class EstadiaController extends Controller
         ]);
 
         return "Estadia excluida!";
-    }
-
+    } */
 
     public function updateFimEstadia(Request $request)
     {
         //Atualizar horario de saida
-
         date_default_timezone_set('America/Sao_Paulo');
         $horario_atual = date('h:i:s');
+
+        // select Mesa
+
+
+        Estadia::where(['id' => $request->id_estadia])->update([
+            'status_estadia' => 0
+        ]);
 
         Estadia::where(['id' => $request->id_estadia])->update([
             'horario_saida' => $horario_atual
         ]);
-        $id_estadia = Estadia::latest('id')->first();
+
+        Estadia::where(['id' => $request->id_estadia])->update([
+            'id_pedido' => $request->id_pedido,
+            'valor_total_estadia' => $request->valor_total_estadia
+        ]);
+
+        // JOIN estadia > mesa > pedido > prato
+
         return "<script>
         alert('Estadia finalizada!');
-        window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia->id'
+        window.location.href='http://localhost/Nordeste-front-end/resources/html/load.html'
         </script>";
     }
 
