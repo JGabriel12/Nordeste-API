@@ -46,7 +46,6 @@ class EstadiaController extends Controller
             'horario_saida' => $request->horario_saida,
             'data_atual' => $data_atual,
             'valor_total_estadia' => $request->valor_total_estadia,
-            'id_pedido' => $request->id_pedido,
             'id_mesa' => $request->id_mesa
         ]);
         $id_estadia = Estadia::latest('id')->first();

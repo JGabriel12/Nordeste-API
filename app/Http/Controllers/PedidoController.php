@@ -39,13 +39,15 @@ class PedidoController extends Controller
         Pedido::create([
             'status_pedido' => "Concluido!",
             'id_mesa' => $request->id_mesa,
-            'id_prato' => $request->id_prato
+            'id_prato' => $request->id_prato,
         ]);
 
-        return "<script>
+        return $request;
+
+        /* return "<script>
         alert('Seu pedido foi registrado!');
         window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa'
-        </script>";
+        </script>"; */
     }
 
     /**
