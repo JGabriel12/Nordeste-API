@@ -49,9 +49,6 @@ class EstadiaController extends Controller
             'id_mesa' => $request->id_mesa
         ]);
         $id_estadia = Estadia::latest('id')->first();
-        // $id_estadia->id;
-
-
 
         return "<script>
         
@@ -126,11 +123,6 @@ class EstadiaController extends Controller
 
         Estadia::where(['id' => $request->id_estadia])->update([
             'horario_saida' => $horario_atual
-        ]);
-
-        Estadia::where(['id' => $request->id_estadia])->update([
-            'id_pedido' => $request->id_pedido,
-            'valor_total_estadia' => $request->valor_total_estadia
         ]);
 
         // JOIN estadia > mesa > pedido > prato

@@ -42,12 +42,12 @@ class PedidoController extends Controller
             'id_prato' => $request->id_prato,
         ]);
 
-        return $request;
 
-        /* return "<script>
+
+        return "<script>
         alert('Seu pedido foi registrado!');
         window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa'
-        </script>"; */
+        </script>";
     }
 
     /**
