@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estadia;
+use App\Models\Prato;
 use Illuminate\Http\Request;
 
 class EstadiaController extends Controller
@@ -88,34 +89,12 @@ class EstadiaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*     public function update(Request $request)
-    {
-        Estadia::where(['id' => $request->id])->update([
-            'id_pedido' => $request->id_pedido,
-            'valor_total_estadia' => $request->valor_total_estadia
-        ]);
-
-        return "Estadia atualizada!";
-    } */
-
-    /*   public function updateStatus(Request $request)
-    {
-        //Excluir logicamente
-        Estadia::where(['id' => $request->id])->update([
-            'status_estadia' => $request->status_estadia
-        ]);
-
-        return "Estadia excluida!";
-    } */
 
     public function updateFimEstadia(Request $request)
     {
         //Atualizar horario de saida
         date_default_timezone_set('America/Sao_Paulo');
         $horario_atual = date('h:i:s');
-
-        // select Mesa
-
 
         Estadia::where(['id' => $request->id_estadia])->update([
             'status_estadia' => 0
@@ -125,10 +104,7 @@ class EstadiaController extends Controller
             'horario_saida' => $horario_atual
         ]);
 
-        // JOIN estadia > mesa > pedido > prato
-
         return "<script>
-        alert('Estadia finalizada!');
         window.location.href='http://localhost/Nordeste-front-end/resources/html/load.html'
         </script>";
     }

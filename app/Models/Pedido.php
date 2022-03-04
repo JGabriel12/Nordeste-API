@@ -9,6 +9,12 @@ class Pedido extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'status_pedido',
+        'id_mesa',
+        'id_prato',
+    ];
+
     public function mesa()
     {
         return $this->belongsTo(Mesa::class);
@@ -18,10 +24,4 @@ class Pedido extends Model
     {
         return $this->hasMany(Prato::class);
     }
-
-    protected $fillable = [
-        'status_pedido',
-        'id_mesa',
-        'id_prato',
-    ];
 }

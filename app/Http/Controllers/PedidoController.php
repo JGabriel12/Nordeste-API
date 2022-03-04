@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Mesa;
 use App\Models\Pedido;
+use App\Models\Prato;
+use App\Models\Estadia;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -36,13 +39,25 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+
         Pedido::create([
             'status_pedido' => "Concluido!",
             'id_mesa' => $request->id_mesa,
             'id_prato' => $request->id_prato,
         ]);
+        $valor_pratoJSON = Prato::where(['id' => $request->id_prato])->get('valor_prato');
+        $valor_prato = json_decode($valor_pratoJSON);
+        // JOIN eloquent
 
+        /*    $mesas = DB::table('mesas')
+            ->join('mesas', 'id_mesa', '=', 'id')
+            ->join('orders', 'users.id', '=', 'orders.user_id')
+            ->select('users.*', 'contacts.phone', 'orders.price')
+            ->get(); */
 
+        Estadia::where(['id' => 1])->update([
+            'valor_total_estadia' =>  $valor_prato
+        ]);
 
         return "<script>
         alert('Seu pedido foi registrado!');
