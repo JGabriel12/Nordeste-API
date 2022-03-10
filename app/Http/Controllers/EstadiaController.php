@@ -92,6 +92,8 @@ class EstadiaController extends Controller
 
     public function updateFimEstadia(Request $request)
     {
+        // *INPUT HIDDEN SÓ FUNCIONA UMA VEZ
+
         //Atualizar horario de saida
         date_default_timezone_set('America/Sao_Paulo');
         $horario_atual = date('h:i:s');

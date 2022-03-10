@@ -45,23 +45,37 @@ class PedidoController extends Controller
             'id_mesa' => $request->id_mesa,
             'id_prato' => $request->id_prato,
         ]);
-        $valor_pratoJSON = Prato::where(['id' => $request->id_prato])->get('valor_prato');
-        $valor_prato = json_decode($valor_pratoJSON);
-        // JOIN eloquent
 
-        /*    $mesas = DB::table('mesas')
-            ->join('mesas', 'id_mesa', '=', 'id')
-            ->join('orders', 'users.id', '=', 'orders.user_id')
-            ->select('users.*', 'contacts.phone', 'orders.price')
+        //   Prato::find(['id' => $request->id]);
+
+        /* $valor_prato = DB::table('pratos')
+            ->where('id', '=', $request->id_prato)
+            ->where($request->valor_prato, '=', 'valor_prato')
             ->get(); */
 
-        Estadia::where(['id' => 1])->update([
-            'valor_total_estadia' =>  $valor_prato
-        ]);
+        $valores_prato = Prato::select('valor_prato')
+            ->where('id', '=', $request->id_prato)
+            ->get();
+
+        $id_estadia = $request->id_estadia;
+
+
+        foreach ($valores_prato as $valor_prato) {
+            $valor_total_estadia = $valor_prato->valor_prato;
+        }
+        // increment
+        Estadia::find($id_estadia)->increment(
+            'valor_total_estadia',
+            20
+        );
+        /* $valor_pratoJSON = Prato::where(['id' => $request->id_prato])->get('valor_prato');
+        $valor_prato = json_decode($valor_pratoJSON); */
+
+        /* window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia->id'  */
 
         return "<script>
         alert('Seu pedido foi registrado!');
-        window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa'
+         
         </script>";
     }
 
