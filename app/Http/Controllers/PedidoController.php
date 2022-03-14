@@ -62,20 +62,26 @@ class PedidoController extends Controller
 
         foreach ($valores_prato as $valor_prato) {
             $valor_total_estadia = $valor_prato->valor_prato;
+
+            Estadia::where(['id' => $id_estadia])->update([
+                'valor_total_estadia' => $valor_total_estadia
+            ])->increment('valor_total_estadia', $valor_total_estadia);
         }
         // increment
-        Estadia::find($id_estadia)->increment(
+        /*  Estadia::find($id_estadia)->increment(
             'valor_total_estadia',
             20
-        );
+        ); */
+        // $query->increment('stotal_a');
+
         /* $valor_pratoJSON = Prato::where(['id' => $request->id_prato])->get('valor_prato');
         $valor_prato = json_decode($valor_pratoJSON); */
 
-        /* window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia->id'  */
+        /* window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia->id' */
 
         return "<script>
         alert('Seu pedido foi registrado!');
-         
+        
         </script>";
     }
 
