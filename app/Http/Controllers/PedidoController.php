@@ -47,26 +47,46 @@ class PedidoController extends Controller
         ]);
 
         //   Prato::find(['id' => $request->id]);
+        $id_estadia = $request->id_estadia;
 
         /* $valor_prato = DB::table('pratos')
             ->where('id', '=', $request->id_prato)
             ->where($request->valor_prato, '=', 'valor_prato')
             ->get(); */
 
+
         $valores_prato = Prato::select('valor_prato')
             ->where('id', '=', $request->id_prato)
             ->get();
 
-        $id_estadia = $request->id_estadia;
-
-
-        foreach ($valores_prato as $valor_prato) {
-            $valor_total_estadia = $valor_prato->valor_prato;
-
-            Estadia::where(['id' => $id_estadia])->update([
-                'valor_total_estadia' => $valor_total_estadia
-            ])->increment('valor_total_estadia', $valor_total_estadia);
+        //Valor 01
+        foreach ($valores_prato as $valor_prato_decimal) {
+            $valor_prato_decimal->valor_prato;
         }
+
+        $valor_atual = Estadia::select('valor_total_estadia')
+            ->where('id', '=', $id_estadia)
+            ->get();
+
+        //Valor 02
+        foreach ($valor_atual as $valor_atual_decimal) {
+            $valor_atual_decimal->valor_total_estadia;
+        }
+
+        $valor_final =  $valor_atual_decimal->valor_total_estadia + $valor_prato_decimal->valor_prato;
+
+
+        Estadia::where(['id' => $id_estadia])->update([
+            'valor_total_estadia' => $valor_final
+        ]);
+
+
+
+
+        // ->increment('valor_total_estadia', $valor_total_estadia);
+
+
+
         // increment
         /*  Estadia::find($id_estadia)->increment(
             'valor_total_estadia',
@@ -77,11 +97,11 @@ class PedidoController extends Controller
         /* $valor_pratoJSON = Prato::where(['id' => $request->id_prato])->get('valor_prato');
         $valor_prato = json_decode($valor_pratoJSON); */
 
-        /* window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia->id' */
+        /*  */
 
         return "<script>
         alert('Seu pedido foi registrado!');
-        
+        window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia'
         </script>";
     }
 
