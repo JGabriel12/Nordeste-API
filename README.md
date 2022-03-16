@@ -18,10 +18,3 @@ comunicar.
 4. CSS
 5. JavaScript (JQuery)
 
-Como rodar:
-
-I   - composer install
-
-II  - config .env
-
-III - php artisan serve
