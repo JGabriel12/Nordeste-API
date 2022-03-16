@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estadia;
-use App\Models\Prato;
 use Illuminate\Http\Request;
 
 class EstadiaController extends Controller
@@ -52,7 +51,6 @@ class EstadiaController extends Controller
         $id_estadia = Estadia::latest('id')->first();
 
         return "<script>
-        
         alert('Sua estadia foi registrada!');
         window.location.href='http://localhost/Nordeste-front-end/resources/html/pratos.html?id_mesa=$request->id_mesa&id_estadia=$id_estadia->id'
         </script>";
@@ -92,7 +90,6 @@ class EstadiaController extends Controller
 
     public function updateFimEstadia(Request $request)
     {
-        // *INPUT HIDDEN SÓ FUNCIONA UMA VEZ
 
         //Atualizar horario de saida
         date_default_timezone_set('America/Sao_Paulo');

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Estadia;
+
 use App\Models\Mesa;
 use Illuminate\Http\Request;
 use \Illuminate\Http\Response;
@@ -90,7 +90,10 @@ class MesaController extends Controller
             'status_mesa' => 0
         ]);
 
-        return 'test';
+        return "<script>
+        alert('Mesa excluida!');
+        window.location.href='http://localhost/Nordeste-front-end/resources/html/adm.html'
+        </script>";
     }
 
     /**

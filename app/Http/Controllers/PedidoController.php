@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use App\Models\Mesa;
 use App\Models\Pedido;
 use App\Models\Prato;
 use App\Models\Estadia;
@@ -46,14 +44,7 @@ class PedidoController extends Controller
             'id_prato' => $request->id_prato,
         ]);
 
-        //   Prato::find(['id' => $request->id]);
         $id_estadia = $request->id_estadia;
-
-        /* $valor_prato = DB::table('pratos')
-            ->where('id', '=', $request->id_prato)
-            ->where($request->valor_prato, '=', 'valor_prato')
-            ->get(); */
-
 
         $valores_prato = Prato::select('valor_prato')
             ->where('id', '=', $request->id_prato)
@@ -73,31 +64,12 @@ class PedidoController extends Controller
             $valor_atual_decimal->valor_total_estadia;
         }
 
-        $valor_final =  $valor_atual_decimal->valor_total_estadia + $valor_prato_decimal->valor_prato;
+        $valor_final = $valor_atual_decimal->valor_total_estadia + $valor_prato_decimal->valor_prato;
 
 
         Estadia::where(['id' => $id_estadia])->update([
             'valor_total_estadia' => $valor_final
         ]);
-
-
-
-
-        // ->increment('valor_total_estadia', $valor_total_estadia);
-
-
-
-        // increment
-        /*  Estadia::find($id_estadia)->increment(
-            'valor_total_estadia',
-            20
-        ); */
-        // $query->increment('stotal_a');
-
-        /* $valor_pratoJSON = Prato::where(['id' => $request->id_prato])->get('valor_prato');
-        $valor_prato = json_decode($valor_pratoJSON); */
-
-        /*  */
 
         return "<script>
         alert('Seu pedido foi registrado!');

@@ -91,7 +91,10 @@ class PratoController extends Controller
             'status_prato' => 0
         ]);
 
-        return "prato deletado";
+        return "<script>
+        alert('Prato excluido!');
+        window.location.href='http://localhost/Nordeste-front-end/resources/html/adm.html'
+        </script>";
     }
 
     /**
