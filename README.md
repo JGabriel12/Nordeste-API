@@ -25,4 +25,3 @@ comunicar.
 
 1. Insomnia
 2. VScode
-3. Bootstrap
